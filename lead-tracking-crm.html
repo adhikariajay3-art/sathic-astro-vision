@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SATHIC ASTRO VISION™ Lead Tracking CRM</title>
+  <style>
+    body{margin:0;background:#07050f;color:#fff;font-family:Arial,Helvetica,sans-serif;padding:18px}.wrap{max-width:1100px;margin:auto}
+    h1{font-size:24px;color:#ffd166;margin-bottom:6px}.sub{color:#bbb;margin-bottom:18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:14px}
+    .card,.panel{background:linear-gradient(180deg,#151129,#0e0a1e);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+    .label{font-size:12px;color:#aaa}.num{font-size:25px;font-weight:700;margin-top:8px;color:#c8aaff}.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+    input,select,textarea{width:100%;box-sizing:border-box;background:#080512;color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:9px;padding:10px}textarea{min-height:42px}
+    button{background:linear-gradient(135deg,#8d5cff,#4d7cff);border:0;color:#fff;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}.danger{background:#61202a}.ghost{background:#22203a}
+    table{width:100%;border-collapse:collapse;margin-top:16px;background:#0e0a1e;border-radius:14px;overflow:hidden}th,td{padding:10px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;font-size:13px;vertical-align:top}th{color:#ffd166;background:#151129}
+    .tag{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(141,92,255,.2);font-size:12px}.actions{display:flex;gap:6px;flex-wrap:wrap}.note{color:#ccc;font-size:13px;line-height:1.6;margin-top:12px}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📋 SATHIC ASTRO VISION™ Lead Tracking CRM</h1>
+  <div class="sub">WhatsApp, Instagram, Facebook, Website और Referral leads को track करें</div>
+
+  <div class="grid">
+    <div class="card"><div class="label">Total Leads</div><div class="num" id="total">0</div></div>
+    <div class="card"><div class="label">New Leads</div><div class="num" id="newCount">0</div></div>
+    <div class="card"><div class="label">Follow-up</div><div class="num" id="followCount">0</div></div>
+    <div class="card"><div class="label">Converted</div><div class="num" id="convertedCount">0</div></div>
+  </div>
+
+  <div class="panel">
+    <div class="form">
+      <input id="name" placeholder="Lead Name" />
+      <input id="phone" placeholder="Mobile / WhatsApp" />
+      <select id="source"><option>WhatsApp</option><option>Instagram</option><option>Facebook</option><option>YouTube</option><option>Website</option><option>Referral</option></select>
+      <select id="interest"><option>Kundli Report</option><option>Vastu Consultation</option><option>Membership</option><option>PDF Product</option><option>Workshop</option><option>Other</option></select>
+      <select id="status"><option>New</option><option>Contacted</option><option>Follow-up</option><option>Converted</option><option>Not Interested</option></select>
+      <input id="followDate" type="date" />
+      <input id="amount" type="number" placeholder="Expected Amount ₹" />
+      <textarea id="notes" placeholder="Notes"></textarea>
+    </div>
+    <button onclick="addLead()">Add Lead</button>
+    <button class="ghost" onclick="exportCSV()">Export CSV</button>
+    <button class="danger" onclick="clearAll()">Clear All</button>
+  </div>
+
+  <table><thead><tr><th>Name</th><th>Phone</th><th>Source</th><th>Interest</th><th>Status</th><th>Follow-up</th><th>Amount</th><th>Notes</th><th>Action</th></tr></thead><tbody id="leadRows"></tbody></table>
+  <div class="note">Rule: New lead को 5 मिनट में reply, 24 घंटे में follow-up, 7 दिन तक nurturing और फिर paid offer.</div>
+</div>
+<script>
+let leads=JSON.parse(localStorage.getItem('sathic_leads')||'[]');
+function save(){localStorage.setItem('sathic_leads',JSON.stringify(leads))}
+function render(){leadRows.innerHTML='';let n=0,f=0,c=0;leads.forEach((l,i)=>{if(l.status==='New')n++;if(l.status==='Follow-up')f++;if(l.status==='Converted')c++;leadRows.innerHTML+=`<tr><td>${l.name}</td><td>${l.phone}</td><td><span class="tag">${l.source}</span></td><td>${l.interest}</td><td><select onchange="leads[${i}].status=this.value;save();render()"><option ${l.status==='New'?'selected':''}>New</option><option ${l.status==='Contacted'?'selected':''}>Contacted</option><option ${l.status==='Follow-up'?'selected':''}>Follow-up</option><option ${l.status==='Converted'?'selected':''}>Converted</option><option ${l.status==='Not Interested'?'selected':''}>Not Interested</option></select></td><td>${l.followDate||'-'}</td><td>₹${Number(l.amount||0).toLocaleString('en-IN')}</td><td>${l.notes||''}</td><td class="actions"><button onclick="window.open('https://wa.me/91${String(l.phone).replace(/\D/g,'').slice(-10)}','_blank')">WhatsApp</button><button class="danger" onclick="delLead(${i})">Delete</button></td></tr>`});total.innerText=leads.length;newCount.innerText=n;followCount.innerText=f;convertedCount.innerText=c}
+function addLead(){let l={name:name.value,phone:phone.value,source:source.value,interest:interest.value,status:status.value,followDate:followDate.value,amount:amount.value,notes:notes.value,createdAt:new Date().toISOString()};if(!l.name||!l.phone){alert('Name और phone जरूरी है');return}leads.unshift(l);save();document.querySelectorAll('input,textarea').forEach(x=>x.value='');render()}
+function delLead(i){if(confirm('Delete lead?')){leads.splice(i,1);save();render()}}
+function clearAll(){if(confirm('All leads delete?')){leads=[];save();render()}}
+function exportCSV(){let csv='Name,Phone,Source,Interest,Status,FollowDate,Amount,Notes\n'+leads.map(l=>[l.name,l.phone,l.source,l.interest,l.status,l.followDate,l.amount,l.notes].map(v=>'"'+String(v||'').replaceAll('"','""')+'"').join(',')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='sathic-leads.csv';a.click()}
+render();
+</script>
+</body>
+</html>
