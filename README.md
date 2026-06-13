@@ -7,26 +7,33 @@ A front-end business platform for astrology and vastu consultation work.
 - `index.html` — client management dashboard
 - `revenue-dashboard.html` — ₹1 crore revenue tracker
 - `lead-tracking-crm.html` — lead tracking CRM
+- `order-dashboard.html` — orders, payments and delivery tracking
 - `whatsapp-funnel-manager.html` — Day 0 to Day 7 funnel messages
-- `digital-product-store.html` — digital product store with UPI payment instructions
+- `digital-product-store.html` — digital product store with UPI payment and WhatsApp order button
 - `payment-confirmation.html` — payment confirmation message generator
 - `terms-and-disclaimer.html` — terms, refund policy, privacy and astrology disclaimer
+- `108-jyotish-remedies-sample.html` — sample product page
 - `business-plan-1-year.md` — 1-year business roadmap
 
 ## Payment Setup
 
-Current UPI ID added in store and confirmation page:
+Current UPI ID:
 
 `adhikari.ajay3-2@okicici`
 
+WhatsApp for order/payment screenshot:
+
+`9680446551`
+
 Customer flow:
 
-1. Open digital product store.
+1. Open `digital-product-store.html`.
 2. Select product or service.
 3. Pay by UPI.
-4. Copy order details.
-5. Send payment screenshot and order details on WhatsApp/DM.
-6. Deliver PDF, report, consultation slot, or membership manually.
+4. Click WhatsApp order button.
+5. Send payment screenshot.
+6. Add customer order in `order-dashboard.html`.
+7. Deliver PDF, report, consultation slot, or membership manually.
 
 ## Products
 
