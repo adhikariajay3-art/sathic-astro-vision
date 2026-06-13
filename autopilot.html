@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>SATHIC Autopilot Mode</title><style>body{margin:0;background:#07050f;color:#fff;font-family:Arial,Helvetica,sans-serif;padding:18px}.wrap{max-width:1000px;margin:auto}h1{color:#ffd166}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.card{background:#0e0a1e;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:16px}.btn{background:linear-gradient(135deg,#8d5cff,#4d7cff);border:0;color:#fff;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer;margin-top:8px}.msg{white-space:pre-line;background:#080512;border-radius:12px;padding:12px;color:#ddd;line-height:1.6}.tag{display:inline-block;color:#ffd166;background:rgba(255,209,102,.12);border-radius:999px;padding:6px 10px;margin:4px}.note{color:#bbb;line-height:1.7}</style></head><body><div class="wrap"><h1>🤖 SATHIC Autopilot Mode</h1><p class="note">Daily content, sales message, follow-up और checklist generator. यह manual autopilot है: copy करके WhatsApp/Instagram/Facebook पर use करें.</p><div><span class="tag">UPI: adhikari.ajay3-2@okicici</span><span class="tag">WhatsApp: 9680446551</span></div><div class="grid" id="cards"></div></div><script>
+const today=new Date().toLocaleDateString('hi-IN');
+const tasks=[
+{t:'आज के 3 Content Ideas',m:`1. आज का सरल उपाय: सूर्य को जल और आत्मविश्वास\n2. वास्तु टिप: घर के उत्तर-पूर्व को साफ रखने का महत्व\n3. कुंडली संकेत: धन रुकावट में 2nd/11th भाव और दशा क्यों देखें`},
+{t:'₹299 PDF Sales Message',m:`नमस्ते 🙏\n108 Jyotish Remedies PDF उपलब्ध है।\nइसमें नौकरी, धन, विवाह, राहु-शनि, पितृ दोष और वास्तु के सरल उपाय हैं।\nFee: ₹299\nUPI: adhikari.ajay3-2@okicici\nPayment screenshot WhatsApp करें: 9680446551`},
+{t:'Lead Follow-up Message',m:`नमस्ते जी 🙏\nआपने ज्योतिष/वास्तु guidance के लिए interest दिखाया था।\nकृपया बताएं आपकी मुख्य समस्या क्या है: नौकरी, धन, विवाह, कर्ज, वास्तु या कुंडली report?`},
+{t:'Membership Upsell',m:`आप SATHIC ASTRO VISION Monthly Membership join कर सकते हैं।\nFee: ₹499/month\nइसमें weekly Q&A, monthly gochar guidance, special remedies और priority support मिलेगा.`},
+{t:'Daily Checklist',m:`Date: ${today}\n[ ] Store link share किया\n[ ] 3 posts डाले\n[ ] Leads CRM update किया\n[ ] Payment screenshot check किया\n[ ] Orders dashboard update किया\n[ ] Revenue dashboard update किया\n[ ] Paid customers को delivery/upsell भेजा`}
+];
+function copy(i){navigator.clipboard.writeText(tasks[i].m);alert('Copied!')}
+cards.innerHTML=tasks.map((x,i)=>`<div class="card"><h2>${x.t}</h2><div class="msg">${x.m}</div><button class="btn" onclick="copy(${i})">Copy</button></div>`).join('');
+</script></body></html>
