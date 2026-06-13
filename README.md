@@ -1,24 +1,41 @@
 # Sathic Astro Vision
 
-A beautiful single-page client management dashboard for astrology consultation work.
+A front-end business platform for astrology and vastu consultation work.
 
-## Features
+## Core App
 
-- Login and register system using browser local storage
-- Client management dashboard
-- Add, search, and delete clients
-- Track paid and pending clients
-- Track total earnings
-- Responsive beautiful UI
-- Static HTML app, ready for Vercel deployment
+- `index.html` — client management dashboard
+- `revenue-dashboard.html` — ₹1 crore revenue tracker
+- `lead-tracking-crm.html` — lead tracking CRM
+- `whatsapp-funnel-manager.html` — Day 0 to Day 7 funnel messages
+- `digital-product-store.html` — digital product store with UPI payment instructions
+- `payment-confirmation.html` — payment confirmation message generator
+- `terms-and-disclaimer.html` — terms, refund policy, privacy and astrology disclaimer
+- `business-plan-1-year.md` — 1-year business roadmap
 
-## How to use
+## Payment Setup
 
-1. Open `index.html` in a browser.
-2. Register with your name, email, and password.
-3. Login with the same email and password.
-4. Add client details such as name, phone, service, status, amount, and notes.
-5. Use dashboard cards to track clients, payments, and earnings.
+Current UPI ID added in store and confirmation page:
+
+`adhikari.ajay3-2@okicici`
+
+Customer flow:
+
+1. Open digital product store.
+2. Select product or service.
+3. Pay by UPI.
+4. Copy order details.
+5. Send payment screenshot and order details on WhatsApp/DM.
+6. Deliver PDF, report, consultation slot, or membership manually.
+
+## Products
+
+- 108 Jyotish Remedies PDF — ₹299
+- Vastu Checklist — ₹499
+- Premium Kundli Report — ₹2,100
+- Vastu Consultation — ₹5,100
+- Monthly Membership — ₹499/month
+- Astrology Workshop — ₹999–₹2,999
 
 ## Deploy instructions
 
@@ -32,6 +49,6 @@ A beautiful single-page client management dashboard for astrology consultation w
 6. Click **Deploy**.
 7. Vercel will provide a live URL.
 
-## Notes
+## Important Notes
 
-This is a front-end demo app. Data is stored in browser local storage. For multi-device login, cloud database, OTP, payment gateway, or admin security, connect a backend such as Firebase, Supabase, or Node.js API.
+This is a front-end manual payment and delivery setup. Data is stored in browser local storage. For automatic payment confirmation, multi-device login, cloud database, OTP, admin security, and automatic PDF delivery, connect Razorpay/Gumroad plus Firebase/Supabase backend.
