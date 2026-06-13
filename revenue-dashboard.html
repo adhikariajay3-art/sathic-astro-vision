@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SATHIC ASTRO VISION™ Revenue Dashboard</title>
+  <style>
+    body{margin:0;background:#07050f;color:#fff;font-family:Arial,Helvetica,sans-serif;padding:18px}
+    .wrap{max-width:980px;margin:auto}
+    h1{font-size:24px;color:#ffd166;margin-bottom:6px}.sub{color:#bbb;margin-bottom:18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+    .card{background:linear-gradient(180deg,#151129,#0e0a1e);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+    .label{font-size:12px;color:#aaa}.num{font-size:26px;font-weight:700;margin-top:8px;color:#c8aaff}
+    table{width:100%;border-collapse:collapse;margin-top:16px;background:#0e0a1e;border-radius:14px;overflow:hidden}
+    th,td{padding:12px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;font-size:14px}th{color:#ffd166;background:#151129}
+    input{width:100%;box-sizing:border-box;background:#080512;color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px}
+    button{background:linear-gradient(135deg,#8d5cff,#4d7cff);border:0;color:#fff;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;margin-top:12px}
+    .note{margin-top:14px;color:#ccc;font-size:13px;line-height:1.6}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🚀 SATHIC ASTRO VISION™ Revenue Dashboard</h1>
+  <div class="sub">₹1 Crore yearly astrology & vastu business tracker</div>
+
+  <div class="grid">
+    <div class="card"><div class="label">Yearly Target</div><div class="num">₹1,00,00,000</div></div>
+    <div class="card"><div class="label">Current Total</div><div class="num" id="total">₹0</div></div>
+    <div class="card"><div class="label">Target Completed</div><div class="num" id="percent">0%</div></div>
+    <div class="card"><div class="label">Remaining</div><div class="num" id="remaining">₹1,00,00,000</div></div>
+  </div>
+
+  <table>
+    <thead><tr><th>Income Source</th><th>Price</th><th>Sales/Members</th><th>Revenue</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <button onclick="saveData()">Save Dashboard</button>
+  <button onclick="resetData()">Reset</button>
+
+  <div class="note">
+    Daily rule: हर दिन leads, trust और sales बढ़ाने वाले काम करें। Consultation के साथ digital products और membership को जरूर scale करें।
+  </div>
+</div>
+<script>
+const target=10000000;
+let items=JSON.parse(localStorage.getItem('sathic_revenue_items')||'null')||[
+  ['Premium Kundli Reports',2100,0],['Vastu Consultation',5100,0],['Membership Monthly',499,0],['PDF/eBook/Remedy Packs',499,0],['Workshops/Webinars',1499,0]
+];
+function rupee(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
+function render(){let total=0;rows.innerHTML='';items.forEach((it,i)=>{let rev=it[1]*it[2];total+=rev;rows.innerHTML+=`<tr><td>${it[0]}</td><td><input type="number" value="${it[1]}" onchange="items[${i}][1]=+this.value;render()"></td><td><input type="number" value="${it[2]}" onchange="items[${i}][2]=+this.value;render()"></td><td>${rupee(rev)}</td></tr>`});document.getElementById('total').innerText=rupee(total);document.getElementById('percent').innerText=Math.min(100,(total/target*100)).toFixed(1)+'%';document.getElementById('remaining').innerText=rupee(Math.max(0,target-total));}
+function saveData(){localStorage.setItem('sathic_revenue_items',JSON.stringify(items));alert('Saved!')}
+function resetData(){localStorage.removeItem('sathic_revenue_items');location.reload()}
+render();
+</script>
+</body>
+</html>
