@@ -5,17 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SATHIC ASTRO VISION™ Digital Product Store</title>
   <style>
-    body{margin:0;background:#07050f;color:#fff;font-family:Arial,Helvetica,sans-serif;padding:18px}.wrap{max-width:1100px;margin:auto}h1{font-size:26px;color:#ffd166;margin-bottom:6px}.sub{color:#bbb;margin-bottom:18px;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.card{background:linear-gradient(180deg,#151129,#0e0a1e);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.35)}.icon{font-size:34px}.title{font-size:18px;color:#ffd166;margin:10px 0}.desc{color:#ccc;font-size:14px;line-height:1.6;min-height:90px}.price{font-size:26px;font-weight:800;color:#c8aaff;margin:12px 0}.btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,#8d5cff,#4d7cff);color:#fff;border-radius:12px;padding:12px 14px;font-weight:700}.note{margin-top:18px;background:#0e0a1e;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px;color:#ccc;line-height:1.7}code{color:#ffd166}
+    body{margin:0;background:#07050f;color:#fff;font-family:Arial,Helvetica,sans-serif;padding:18px}.wrap{max-width:1100px;margin:auto}h1{font-size:26px;color:#ffd166;margin-bottom:6px}.sub{color:#bbb;margin-bottom:18px;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.card{background:linear-gradient(180deg,#151129,#0e0a1e);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.35)}.icon{font-size:34px}.title{font-size:18px;color:#ffd166;margin:10px 0}.desc{color:#ccc;font-size:14px;line-height:1.6;min-height:98px}.price{font-size:26px;font-weight:800;color:#c8aaff;margin:12px 0}.btn{display:block;text-align:center;text-decoration:none;background:linear-gradient(135deg,#8d5cff,#4d7cff);color:#fff;border-radius:12px;padding:12px 14px;font-weight:700;cursor:pointer}.note{margin-top:18px;background:#0e0a1e;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px;color:#ccc;line-height:1.7}.top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:16px}.pill{background:rgba(255,209,102,.12);border:1px solid rgba(255,209,102,.25);color:#ffd166;border-radius:999px;padding:8px 12px;font-size:13px}.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9;padding:18px}.box{max-width:520px;margin:7vh auto;background:#0e0a1e;border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:18px}.box h2{color:#ffd166;margin-top:0}.field{width:100%;box-sizing:border-box;background:#080512;color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:11px;margin:7px 0}.small{font-size:12px;color:#aaa;line-height:1.5}.close{background:#32243d;margin-top:8px}.pay{background:linear-gradient(135deg,#1b8f73,#25d366);margin-top:8px}code{color:#ffd166}
   </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>🛒 SATHIC ASTRO VISION™ Digital Product Store</h1>
-  <div class="sub">Jyotish, Vastu, Remedies, Kundli Report, Membership और Workshop offers. Payment links को Gumroad/Razorpay links से replace करें.</div>
+  <div class="top"><div><h1>🛒 SATHIC ASTRO VISION™ Digital Product Store</h1><div class="sub">Jyotish, Vastu, Remedies, Kundli Report, Membership और Workshop offers</div></div><div class="pill">₹1 Crore Business Funnel</div></div>
   <div class="grid" id="products"></div>
-  <div class="note"><b>Setup:</b> हर product के <code>[PAYMENT LINK]</code> को अपने Gumroad/Razorpay/Instamojo link से बदलें. Payment के बाद PDF delivery या WhatsApp confirmation system जोड़ें.</div>
+  <div class="note"><b>Ready System:</b> Customer form भरकर order/booking request भेज सकता है। Payment link अभी placeholder है; आप बाद में Razorpay/Gumroad link डाल सकते हैं। तब तक यह enquiry + WhatsApp order system की तरह काम करेगा.</div>
 </div>
+<div class="modal" id="modal"><div class="box"><h2 id="mTitle"></h2><div class="small" id="mDesc"></div><input class="field" id="custName" placeholder="आपका नाम"><input class="field" id="custPhone" placeholder="WhatsApp Number"><input class="field" id="custDob" placeholder="DOB / Birth Details अगर जरूरी हो"><textarea class="field" id="custProblem" placeholder="अपनी समस्या लिखें" rows="4"></textarea><button class="pay" onclick="submitOrder()">Order / Booking Request Copy करें</button><button class="close" onclick="closeModal()">Close</button><div class="small">Copy किया हुआ message WhatsApp/DM में भेजें. Actual payment link जोड़ने के बाद Buy Now direct payment खोलेगा.</div></div></div>
 <script>
+const ownerWhatsapp='[YOUR WHATSAPP NUMBER]';
 const products=[
 {icon:'📘',title:'108 Jyotish Remedies PDF',price:'₹299',desc:'नौकरी, धन, विवाह, राहु-शनि, पितृ दोष और वास्तु के सरल उपायों का PDF pack.',link:'[PAYMENT LINK]'},
 {icon:'🏠',title:'Vastu Checklist',price:'₹499',desc:'Home, shop और office के लिए direction-wise vastu checklist और correction tips.',link:'[PAYMENT LINK]'},
@@ -24,8 +25,13 @@ const products=[
 {icon:'🌙',title:'Monthly Membership',price:'₹499/month',desc:'Weekly Q&A, monthly gochar guidance, special remedies और members-only PDFs.',link:'[JOIN LINK]'},
 {icon:'🎓',title:'Astrology Workshop',price:'₹999–₹2,999',desc:'Live workshop: kundli basics, remedies, dasha-gochar और practical prediction method.',link:'[REGISTER LINK]'}
 ];
+let selected=null;
+function isPlaceholder(x){return !x || x.includes('[')}
+function openProduct(i){selected=products[i];if(!isPlaceholder(selected.link)){window.open(selected.link,'_blank');return}mTitle.innerText=selected.title+' — '+selected.price;mDesc.innerText=selected.desc;modal.style.display='block'}
+function closeModal(){modal.style.display='none'}
+function submitOrder(){if(!selected)return;let msg=`SATHIC ASTRO VISION Order Request\n\nProduct: ${selected.title}\nPrice: ${selected.price}\nName: ${custName.value}\nPhone: ${custPhone.value}\nBirth Details: ${custDob.value}\nProblem: ${custProblem.value}`;navigator.clipboard.writeText(msg);alert('Order message copied! इसे WhatsApp/DM में भेजें.');}
 productsEl=document.getElementById('products');
-productsEl.innerHTML=products.map(p=>`<div class="card"><div class="icon">${p.icon}</div><div class="title">${p.title}</div><div class="desc">${p.desc}</div><div class="price">${p.price}</div><a class="btn" href="${p.link}" target="_blank">Buy / Book Now</a></div>`).join('');
+productsEl.innerHTML=products.map((p,i)=>`<div class="card"><div class="icon">${p.icon}</div><div class="title">${p.title}</div><div class="desc">${p.desc}</div><div class="price">${p.price}</div><button class="btn" onclick="openProduct(${i})">Buy / Book Now</button></div>`).join('');
 </script>
 </body>
 </html>
