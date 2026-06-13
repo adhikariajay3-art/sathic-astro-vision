@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SATHIC ASTRO VISION Funnel Manager</title>
+  <style>
+    body{margin:0;background:#07050f;color:#fff;font-family:Arial,Helvetica,sans-serif;padding:18px}.wrap{max-width:1050px;margin:auto}h1{font-size:24px;color:#ffd166}.sub,.note{color:#bbb;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.card{background:#0e0a1e;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px}.day{display:inline-block;background:rgba(141,92,255,.25);color:#c8aaff;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700}h2{font-size:16px;color:#ffd166}.msg{white-space:pre-line;background:#080512;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px;line-height:1.55;font-size:14px;min-height:145px}button{background:linear-gradient(135deg,#8d5cff,#4d7cff);border:0;color:#fff;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;margin-top:10px;margin-right:6px}input{width:100%;box-sizing:border-box;background:#080512;color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:11px;margin:12px 0}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>SATHIC ASTRO VISION Funnel Manager</h1>
+  <div class="sub">Day 0 से Day 7 तक lead nurturing और sales follow-up message system</div>
+  <input id="leadName" placeholder="Lead Name" />
+  <div class="note">हर message copy करके अपने WhatsApp/DM में भेजें. पहले value दें, फिर trust build करें, फिर paid offer दें.</div>
+  <div class="grid" id="cards"></div>
+</div>
+<script>
+const funnel=[
+{day:'Day 0',title:'Welcome',msg:'नमस्ते {name}, SATHIC ASTRO VISION में आपका स्वागत है। कृपया बताइए आपको किस विषय में guidance चाहिए: नौकरी, धन, विवाह, वास्तु या कुंडली रिपोर्ट?'},
+{day:'Day 1',title:'Problem Awareness',msg:'कई बार जीवन में रुकावट मेहनत की कमी से नहीं, बल्कि गलत दिशा, ग्रह दशा या वास्तु imbalance से भी बनती है। आपकी सबसे बड़ी समस्या अभी कौन सी है?'},
+{day:'Day 2',title:'Value Message',msg:'आज का सरल उपाय: सुबह सूर्य को जल दें और 11 बार सूर्य मंत्र बोलें। यह confidence और clarity के लिए उपयोगी माना जाता है। आपकी समस्या के अनुसार personalized remedy भी बन सकती है।'},
+{day:'Day 3',title:'Trust Message',msg:'हम analysis में लग्न, राशि, दशा, गोचर, प्रश्न से संबंधित ग्रह और practical remedy plan देखते हैं। इससे guidance ज्यादा clear होती है।'},
+{day:'Day 4',title:'Low Ticket Offer',msg:'Special Offer: 108 Jyotish Remedies PDF उपलब्ध है। इसमें नौकरी, धन, विवाह, राहु-शनि और वास्तु tips हैं। Price: ₹299. Payment link: [LINK]'},
+{day:'Day 5',title:'Premium Report',msg:'Premium Kundli Report में career, money, marriage, dasha, gochar और remedies की complete guidance मिलेगी। Fee: ₹2,100. Booking link: [LINK]'},
+{day:'Day 6',title:'Consultation',msg:'Urgent या complex problem के लिए 1-to-1 consultation best रहेगा। Fee: ₹5,100. Available slots: [SLOTS]. Booking: [LINK]'},
+{day:'Day 7',title:'Membership',msg:'Monthly Membership में weekly Q&A, monthly gochar guidance, special remedies, members-only PDFs और priority support मिलेगा। Fee: ₹499/month. Join link: [LINK]'}
+];
+function txt(i){return funnel[i].msg.replaceAll('{name}',leadName.value||'जी')}
+function copyMsg(i){navigator.clipboard.writeText(txt(i));alert('Message copied!')}
+function render(){cards.innerHTML=funnel.map((f,i)=>`<div class="card"><span class="day">${f.day}</span><h2>${f.title}</h2><div class="msg">${txt(i)}</div><button onclick="copyMsg(${i})">Copy Message</button></div>`).join('')}
+leadName.addEventListener('input',render);render();
+</script>
+</body>
+</html>
