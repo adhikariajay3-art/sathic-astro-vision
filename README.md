@@ -44,6 +44,30 @@ Customer flow:
 - Monthly Membership — ₹499/month
 - Astrology Workshop — ₹999–₹2,999
 
+## Kickbacks AI / Codex Setup
+
+Use this project with VS Code, Codex CLI, and Kickbacks AI.
+
+### Steps
+
+1. Create an account at Kickbacks AI.
+2. Install the Kickbacks AI VS Code extension.
+3. Sign in from VS Code.
+4. Open this repository in VS Code.
+5. Use Codex CLI inside VS Code to edit, improve, and ship features.
+6. Check Kickbacks dashboard for earnings and activity tracking.
+7. After earnings reach $10, add payout method from the Kickbacks account page.
+
+### Recommended Codex Tasks for This Project
+
+- Improve mobile layout of all HTML dashboards.
+- Add better Hindi copywriting for astrology/vastu products.
+- Create landing pages for paid reports and consultations.
+- Add lead capture forms and WhatsApp CTA buttons.
+- Add SEO titles, meta descriptions, and schema markup.
+- Improve local storage backup/export options.
+- Prepare pages for Vercel deployment.
+
 ## Deploy instructions
 
 ### Deploy on Vercel
