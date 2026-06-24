@@ -5,6 +5,7 @@ A front-end business platform for astrology and vastu consultation work.
 ## Start Here
 
 - `navigation.html` — central launch page for all dashboards and business tools
+- `v2-67-ai-agents-dashboard.html` — V2 business dashboard for 67 AI agents with categories, input, output, and automation status
 
 ## Core App
 
