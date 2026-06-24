@@ -4,12 +4,32 @@ A front-end business platform for astrology and vastu consultation work.
 
 ## Start Here
 
+- `index.html` — main homepage running SATHIC ASTRO VISION V2.2 protected dashboard
 - `navigation.html` — central launch page for all dashboards and business tools
-- `v2-67-ai-agents-dashboard.html` — V2 business dashboard for 67 AI agents with categories, input, output, and automation status
+- `v2-67-ai-agents-dashboard.html` — alternate entry for the V2.2 67 AI agents dashboard
+
+## V2.2 Features
+
+- Admin PIN gate for dashboard access
+- 67 AI agents with category, work, input, output, next automation, and status
+- Lead capture form
+- Local storage CRM
+- WhatsApp booking and payment follow-up buttons
+- Basic Kundli Report Generator draft tool
+- Report copy function
+- SEO meta tags
+- Trust/disclaimer notice
+- Shared files:
+  - `assets/sathic-v2.css`
+  - `assets/sathic-v2.js`
+
+Default frontend PIN: `9680`
+
+Note: This PIN is only a frontend access gate. For real security, add backend authentication with Firebase/Supabase/Auth0 or a custom server.
 
 ## Core App
 
-- `index.html` — client management dashboard
+- `index.html` — client management dashboard / V2.2 homepage
 - `revenue-dashboard.html` — ₹1 crore revenue tracker
 - `lead-tracking-crm.html` — lead tracking CRM
 - `order-dashboard.html` — orders, payments and delivery tracking
@@ -66,12 +86,14 @@ Use this project with VS Code, Codex CLI, and Kickbacks AI.
 
 ### Recommended Codex Tasks for This Project
 
-- Improve mobile layout of all HTML dashboards.
+- Connect Firebase/Supabase for multi-device lead CRM.
+- Connect WhatsApp Business API for scheduled booking reminders.
+- Connect Razorpay payment links and webhooks.
+- Add astrology API for D1, D9, Dashas, Gochar and Navtara.
+- Add PDF report generation.
+- Add real backend admin login.
 - Add better Hindi copywriting for astrology/vastu products.
-- Create landing pages for paid reports and consultations.
-- Add lead capture forms and WhatsApp CTA buttons.
-- Add SEO titles, meta descriptions, and schema markup.
-- Improve local storage backup/export options.
+- Add SEO schema markup and Open Graph image.
 - Prepare pages for Vercel deployment.
 
 ## Deploy instructions
@@ -88,4 +110,4 @@ Use this project with VS Code, Codex CLI, and Kickbacks AI.
 
 ## Important Notes
 
-This is a front-end manual payment and delivery setup. Data is stored in browser local storage. For automatic payment confirmation, multi-device login, cloud database, OTP, admin security, and automatic PDF delivery, connect Razorpay/Gumroad plus Firebase/Supabase backend.
+This is currently a front-end dashboard with local browser storage. For automatic payment confirmation, multi-device login, cloud database, OTP, admin security, and automatic PDF delivery, connect Razorpay/Gumroad plus Firebase/Supabase backend.
