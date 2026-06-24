@@ -1,0 +1,23 @@
+@media (max-width: 1200px){
+  .wrap{padding-left:10px!important;padding-right:10px!important;}
+  .stats,.cards,.cats,.agentGrid,.work,.two,.formGrid{grid-template-columns:1fr!important;}
+  .toolbar{position:static!important;display:grid!important;grid-template-columns:1fr!important;gap:10px!important;background:transparent!important;padding:0!important;}
+  .search,.select{min-width:0!important;width:100%!important;}
+  .section{display:block!important;}
+  .section h2{font-size:22px!important;margin-bottom:6px!important;}
+  .agent,.panel,.dash,.cat,.stat{width:100%!important;}
+  .agentHead{padding:14px!important;}
+  .detailBody{padding:14px!important;}
+  .topbar{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;}
+  .topbar .btn{width:100%!important;justify-content:center!important;}
+}
+@media (max-width: 620px){
+  h1{font-size:34px!important;}
+  .hero{padding:16px 12px!important;border-radius:18px!important;}
+  .sub{font-size:14px!important;}
+  .btn{width:100%!important;justify-content:center!important;}
+  .actions{justify-content:stretch!important;}
+  .panel{padding:14px!important;}
+  .row span{font-size:13px!important;}
+  .badge,.trust{font-size:12px!important;}
+}
