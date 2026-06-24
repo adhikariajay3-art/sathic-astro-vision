@@ -1,1 +1,19 @@
-{"version":2,"builds":[{"src":"**/*","use":"@vercel/static"}],"routes":[{"src":"/","dest":"/customer-dashboard.html"},{"src":"/(.*)","dest":"/$1"}]}
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
