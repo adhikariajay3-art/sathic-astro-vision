@@ -2,6 +2,10 @@
 
 A front-end business platform for astrology and vastu consultation work.
 
+## Start Here
+
+- `navigation.html` — central launch page for all dashboards and business tools
+
 ## Core App
 
 - `index.html` — client management dashboard
