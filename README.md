@@ -11,6 +11,7 @@ A front-end business platform for astrology and vastu consultation work.
 - `whatsapp-funnel-manager.html` — Day 0 to Day 7 funnel messages
 - `digital-product-store.html` — digital product store with UPI payment and WhatsApp order button
 - `payment-confirmation.html` — payment confirmation message generator
+- `ai-team-dashboard.html` — SATHIC AI agent team dashboard with 10 core agents, 7 Master Sutra steps, and Phase 2 future agents
 - `terms-and-disclaimer.html` — terms, refund policy, privacy and astrology disclaimer
 - `108-jyotish-remedies-sample.html` — sample product page
 - `business-plan-1-year.md` — 1-year business roadmap
